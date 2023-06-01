@@ -1,8 +1,9 @@
-// const API_URL = 'http://localhost:8000/v1';
+const API_URL_BASE = 'https://space-launch.onrender.com/';
+const API_URL = `${API_URL_BASE}/v1`;
 
 async function httpGetPlanets() {
   // Load planets and return as JSON.
-  const response = await fetch(`${process.env.HOST_URL}/v1/planets`)   /*fetch defaults to GET*/
+  const response = await fetch(`${API_URL}/planets`)   /*fetch defaults to GET*/
   //.json() returns a promise so we must await it
   return await response.json();
   
@@ -11,7 +12,7 @@ async function httpGetPlanets() {
 async function httpGetLaunches() {
   
   // Load launches, sort by flight number, and return as JSON.
-  const response = await fetch(`${process.env.HOST_URL}/v1/launches`)  /*fetch defaults to GET*/
+  const response = await fetch(`${API_URL}/launches`)  /*fetch defaults to GET*/
   //.json() returns a promise so we must await it
   const listOfLaunches = await response.json();
   //sort launch list by ascending number of flight number
@@ -22,7 +23,7 @@ async function httpSubmitLaunch(launch) {
   // Submit given launch data to launch system.
   try{
     //If success, we return 200 status that returns a ok value of true, which is needed on front end in useLaunches() function in hooks
-    return await fetch(`${process.env.HOST_URL}/v1/launches`, {
+    return await fetch(`${API_URL}/launches`, {
       method: "post",
       headers: {
         "Content-Type": "application/json"
@@ -42,7 +43,7 @@ async function httpSubmitLaunch(launch) {
 async function httpAbortLaunch(id) {
   // Delete launch with given ID.
   try {
-    return await fetch(`${process.env.HOST_URL}/v1/launches/${id}`, {
+    return await fetch(`${API_URL}/launches/${id}`, {
       method: "delete",
 
     })
