@@ -8,6 +8,7 @@ jobs:
   build:
     env:
       CI: true
+      MONGO_URL: mongodb://localhost/space-launch
     strategy:
       matrix: 
         node-version: [15.x, 16.x]
