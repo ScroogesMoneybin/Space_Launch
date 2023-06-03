@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://space-launch.onrender.com/';
+const API_BASE_URL = 'https://space-launch.onrender.com';
 const API_URL = `${API_BASE_URL}/v1`;
 
 async function httpGetPlanets() {
