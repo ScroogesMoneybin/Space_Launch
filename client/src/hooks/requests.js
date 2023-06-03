@@ -1,5 +1,9 @@
-const API_BASE_URL = 'https://space-launch.onrender.com';
-const API_URL = `${API_BASE_URL}/v1`;
+const API_URL_BASE = 'https://space-launch.onrender.com';
+const API_URL = `${API_URL_BASE}/v1`;
+
+
+//When dockerizing, we use the following instead of the above two lines:
+// const API_URL = 'v1';   
 
 async function httpGetPlanets() {
   // Load planets and return as JSON.
